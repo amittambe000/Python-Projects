@@ -1,3 +1,4 @@
 TodoList/env/*
 PdfToImage/*
 DownloadPDfs/*
+TodoList/modules/__pycache__/*
