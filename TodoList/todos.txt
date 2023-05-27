@@ -1,5 +1,1 @@
-Read
-aaaa
-Write
-Updated todo
-Complete the python course
+my fsecond todo1

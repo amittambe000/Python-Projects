@@ -1,6 +1,11 @@
 from modules import functions
 import PySimpleGUI as sg
 import time
+import os
+
+if not os.path.exists('todos.txt'):
+    with open('todos.txt','w'):
+        pass
 
 sg.theme('DarkAmber')
 label=sg.Text('Type in a todo')
@@ -24,8 +29,6 @@ window=sg.Window('My todo app',layout=[[clock],
 while True:
     event,values =window.read(timeout=200)
     window['clock'].update(value=time.strftime("%b %d %Y %H:%M:%S"))
-    print(event)
-    print(values)
     if(event=='Add'):
         todos=functions.get_todos()
         todos.append(values['todo']+'\n')
@@ -42,7 +45,7 @@ while True:
             todos[index]=new_to_do
             functions.write_todos(todos)
             window['todos'].update(values=todos)
-        except:
+        except IndexError:
             sg.popup("Please select an item first")
     elif(event=='Complete'):
         try:
@@ -52,7 +55,7 @@ while True:
             functions.write_todos(todos)
             window['todos'].update(values=todos)
             window['todo'].update(value='')
-        except:
+        except IndexError:
             sg.popup("Please select an item first")
     elif(event=='Exit'):
         break
