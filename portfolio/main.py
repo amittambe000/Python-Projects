@@ -15,3 +15,5 @@ with col2:
     My Hobbies are travelling , exploring new places and foodies.
     """
     st.info(content)
+
+st.info("Below you can find some of the apps I have built in Python. Feel free to contact me !")
